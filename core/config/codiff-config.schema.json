@@ -42,6 +42,12 @@
           "default": 13,
           "description": "Font size in pixels used for diff and code rendering."
         },
+        "colorTheme": {
+          "type": "string",
+          "enum": ["default", "compline", "gruvbox"],
+          "default": "default",
+          "description": "Color palette for the interface and syntax highlighting. Each palette has a light and a dark variant; 'theme' picks which one is shown."
+        },
         "copyCommentsOnClose": {
           "type": "boolean",
           "default": false,

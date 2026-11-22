@@ -1,0 +1,159 @@
+{
+  "name": "Compline Light",
+  "appearance": "light",
+  "style": {
+    "background": "#f7f6f3",
+    "text": "#262a30",
+    "editor.background": "#f7f6f3",
+    "editor.foreground": "#262a30",
+    "editor.active_line.background": "#a5a5a520",
+    "search.match_background": "#9c823440",
+    "players": [
+      {
+        "cursor": "#4a685a",
+        "selection": "#4a685a33"
+      }
+    ],
+    "editor.line_number": "#a0a4aa",
+    "editor.active_line_number": "#262a30",
+    "syntax": {
+      "attribute": {
+        "color": "#4a6880"
+      },
+      "boolean": {
+        "color": "#a85252"
+      },
+      "comment": {
+        "color": "#808690",
+        "font_style": "italic"
+      },
+      "comment.doc": {
+        "color": "#6b7078"
+      },
+      "constant.builtin": {
+        "color": "#a85252"
+      },
+      "constructor": {
+        "color": "#4a685a"
+      },
+      "diff.minus": {
+        "color": "#262a30"
+      },
+      "diff.plus": {
+        "color": "#262a30"
+      },
+      "emphasis": {
+        "color": "#262a30",
+        "font_style": "italic"
+      },
+      "emphasis.strong": {
+        "color": "#262a30",
+        "font_weight": 700
+      },
+      "enum": {
+        "color": "#8a7230"
+      },
+      "function": {
+        "color": "#4a685a"
+      },
+      "keyword": {
+        "color": "#4a688c"
+      },
+      "keyword.declaration": {
+        "color": "#825a70"
+      },
+      "keyword.jsdoc": {
+        "color": "#825a70"
+      },
+      "label": {
+        "color": "#4a685a"
+      },
+      "link_text": {
+        "color": "#547854"
+      },
+      "link_uri": {
+        "color": "#262a30"
+      },
+      "namespace": {
+        "color": "#8a7230"
+      },
+      "number": {
+        "color": "#a85252"
+      },
+      "operator": {
+        "color": "#5a6478"
+      },
+      "property.json_key": {
+        "color": "#4a6880"
+      },
+      "punctuation.bracket.html": {
+        "color": "#6b7078"
+      },
+      "punctuation.bracket.jsx": {
+        "color": "#6b7078"
+      },
+      "punctuation.delimiter.jsx": {
+        "color": "#6b7078"
+      },
+      "punctuation.special": {
+        "color": "#3e6a3e"
+      },
+      "selector": {
+        "color": "#4a688c"
+      },
+      "selector.class": {
+        "color": "#4a6880"
+      },
+      "selector.id": {
+        "color": "#4a6880"
+      },
+      "selector.pseudo": {
+        "color": "#4a6880"
+      },
+      "string": {
+        "color": "#547854"
+      },
+      "string.escape": {
+        "color": "#3e6a3e",
+        "font_weight": 700
+      },
+      "string.regex": {
+        "color": "#3e6a3e"
+      },
+      "string.special": {
+        "color": "#3e6a3e"
+      },
+      "string.special.symbol": {
+        "color": "#3e6a3e",
+        "font_weight": 700
+      },
+      "tag": {
+        "color": "#4a688c"
+      },
+      "tag.component.jsx": {
+        "color": "#8a7230"
+      },
+      "text.jsx": {
+        "color": "#262a30"
+      },
+      "text.literal": {
+        "color": "#262a30"
+      },
+      "title": {
+        "color": "#4a685a"
+      },
+      "type": {
+        "color": "#8a7230"
+      },
+      "type.builtin": {
+        "color": "#825a70"
+      },
+      "type.class": {
+        "color": "#8a7230"
+      },
+      "variable.special": {
+        "color": "#a85252"
+      }
+    }
+  }
+}

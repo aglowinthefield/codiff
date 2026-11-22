@@ -1,5 +1,6 @@
 export type CodiffDiffStyle = 'split' | 'unified';
 export type CodiffTheme = 'system' | 'light' | 'dark';
+export type CodiffColorTheme = 'default' | 'compline' | 'gruvbox';
 export type CodiffAgentBackend = 'codex' | 'claude' | 'opencode' | 'pi';
 
 export type CodiffSettings = {
@@ -8,6 +9,7 @@ export type CodiffSettings = {
   claudeModel: string;
   codeFontFamily: string;
   codeFontSize: number;
+  colorTheme: CodiffColorTheme;
   copyCommentsOnClose: boolean;
   diffStyle: CodiffDiffStyle;
   editorCommand: string;

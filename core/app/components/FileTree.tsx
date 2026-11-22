@@ -82,6 +82,11 @@ export function ReviewFileTree({
         --trees-fg-muted-override: var(--muted);
         --trees-fg-override: var(--sidebar-text);
         --trees-focus-ring-color-override: var(--tree-selection-focus);
+        --trees-status-added-override: var(--codiff-git-added);
+        --trees-status-deleted-override: var(--codiff-git-deleted);
+        --trees-status-modified-override: var(--codiff-git-modified);
+        --trees-status-renamed-override: var(--codiff-git-renamed);
+        --trees-status-untracked-override: var(--codiff-git-untracked);
         --trees-padding-inline-override: 4px;
         --trees-search-bg-override: rgb(127 127 127 / 0.1);
         --trees-search-fg-override: var(--sidebar-text);

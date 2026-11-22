@@ -129,6 +129,7 @@ const { createWalkthroughProgressReporter } = require('./walkthrough-progress.cj
  * @typedef {import('../core/config/types.ts').CodiffConfig} CodiffConfig
  * @typedef {import('../core/types.ts').CodiffLaunchOptions} CodiffLaunchOptions
  * @typedef {import('../core/types.ts').CodiffTheme} CodiffTheme
+ * @typedef {import('../core/types.ts').CodiffColorTheme} CodiffColorTheme
  * @typedef {import('../core/types.ts').ReviewSource} ReviewSource
  * @typedef {{key: string; repositoryRoot: string; sourceKey: string}} WindowIdentity
  * @typedef {{direction: string; name: string; owner: string; repo: string}} GitHubRemote
@@ -458,6 +459,11 @@ const getAgentOptions = (agent) => ({
 /** @param {CodiffTheme} theme */
 const updateTheme = (theme) => {
   updateConfig({ settings: { ...config.settings, theme } });
+};
+
+/** @param {CodiffColorTheme} colorTheme */
+const updateColorTheme = (colorTheme) => {
+  updateConfig({ settings: { ...config.settings, colorTheme } });
 };
 
 /** @param {number} size */
@@ -904,6 +910,29 @@ const buildApplicationMenu = () =>
                 checked: config.settings.theme === 'dark',
                 click: () => updateTheme('dark'),
                 label: 'Dark',
+                type: 'radio',
+              },
+            ],
+          },
+          {
+            label: 'Color Theme',
+            submenu: [
+              {
+                checked: config.settings.colorTheme === 'default',
+                click: () => updateColorTheme('default'),
+                label: 'Default',
+                type: 'radio',
+              },
+              {
+                checked: config.settings.colorTheme === 'compline',
+                click: () => updateColorTheme('compline'),
+                label: 'Compline',
+                type: 'radio',
+              },
+              {
+                checked: config.settings.colorTheme === 'gruvbox',
+                click: () => updateColorTheme('gruvbox'),
+                label: 'Gruvbox',
                 type: 'radio',
               },
             ],

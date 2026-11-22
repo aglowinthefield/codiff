@@ -24,6 +24,7 @@ import {
   CodeView,
   type CodeViewHandle,
   EditProvider,
+  useWorkerPool,
   WorkerPoolContextProvider,
 } from '@pierre/diffs/react';
 import { Copy as LucideCopy } from 'lucide-react';
@@ -77,6 +78,7 @@ import {
   sectionLabel,
   workerHighlighterOptions,
 } from '../../lib/code-view-options.ts';
+import { getSyntaxTheme } from '../../lib/color-themes.ts';
 import {
   canRenderImagePreview,
   getDiffLineCountFromVisibleSections,
@@ -2586,6 +2588,16 @@ const getHunkSelectionRange = (
 const isSameSelection = (a: SelectedLineRange, b: SelectedLineRange) =>
   a.start === b.start && a.end === b.end && a.side === b.side;
 
+// The worker pool is a singleton created with the theme of whichever view
+// mounted first, so a color theme change has to be pushed into it.
+function WorkerPoolSyntaxTheme({ theme }: { theme: Readonly<{ dark: string; light: string }> }) {
+  const pool = useWorkerPool();
+  useEffect(() => {
+    void pool?.setRenderOptions({ theme }).catch(() => {});
+  }, [pool, theme]);
+  return null;
+}
+
 export function ReviewCodeView({
   activeSearchMatch,
   agentId,
@@ -2596,6 +2608,7 @@ export function ReviewCodeView({
   codeEditingStore,
   codeQualityFindings = [],
   collapsed,
+  colorTheme = 'default',
   comments,
   commitMetadata,
   diffLineHeight = DIFF_LINE_HEIGHT,
@@ -2663,6 +2676,7 @@ export function ReviewCodeView({
   codeEditingStore?: CodeEditingStore;
   codeQualityFindings?: ReadonlyArray<PullRequestCodeQualityFinding>;
   collapsed: ReadonlySet<string>;
+  colorTheme?: CodiffPreferences['colorTheme'];
   comments: ReadonlyArray<ReviewComment>;
   commitMetadata: CommitMetadata | null;
   diffLineHeight?: number;
@@ -2722,6 +2736,7 @@ export function ReviewCodeView({
   wordWrap: boolean;
 }) {
   const codeViewRef = useRef<CodeViewHandle<ReviewAnnotationMetadata, undefined>>(null);
+  const syntaxTheme = getSyntaxTheme(colorTheme);
   const [codeViewElement, setCodeViewElement] = useState<HTMLDivElement | null>(null);
   const [compactHeaders, setCompactHeaders] = useState(false);
   useLayoutEffect(() => {
@@ -3902,10 +3917,7 @@ export function ReviewCodeView({
         parseDiffOptions: getDiffParseOptions(showWhitespace),
         preferredHighlighter: workerHighlighterOptions.preferredHighlighter,
         stickyHeaders: true,
-        theme: {
-          dark: 'Dunkel',
-          light: 'Licht',
-        },
+        theme: syntaxTheme,
         themeType: theme,
         tokenizeMaxLength: 100_000,
         unsafeCSS: codeViewUnsafeCSS,
@@ -3931,6 +3943,7 @@ export function ReviewCodeView({
       showWhitespace,
       source,
       sourceKey,
+      syntaxTheme,
       theme,
       wordWrap,
     ],
@@ -4131,6 +4144,10 @@ export function ReviewCodeView({
   }, [itemMetadata, items, sourceKey]);
 
   const workerPoolOptions = useMemo(() => getCodeViewWorkerPoolOptions(), []);
+  const highlighterOptions = useMemo(
+    () => ({ ...workerHighlighterOptions, theme: syntaxTheme }),
+    [syntaxTheme],
+  );
 
   const requestScrollTargetIntoView = useCallback(
     (
@@ -5080,9 +5097,10 @@ export function ReviewCodeView({
     codeView
   ) : (
     <WorkerPoolContextProvider
-      highlighterOptions={workerHighlighterOptions}
+      highlighterOptions={highlighterOptions}
       poolOptions={workerPoolOptions}
     >
+      <WorkerPoolSyntaxTheme theme={syntaxTheme} />
       <CodeView
         className={`code-view${compactHeaders ? ' compact-file-headers' : ''}`}
         containerRef={setCodeViewElement}

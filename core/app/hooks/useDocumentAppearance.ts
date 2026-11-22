@@ -18,6 +18,7 @@ type UseDocumentAppearanceOptions = Pick<
 > & {
   cleanupCodeFontProperties?: boolean;
   clearEmptyCodeFontFamily?: boolean;
+  colorTheme?: CodiffPreferences['colorTheme'];
 };
 
 export function useDocumentAppearance({
@@ -25,6 +26,7 @@ export function useDocumentAppearance({
   clearEmptyCodeFontFamily = false,
   codeFontFamily,
   codeFontSize,
+  colorTheme = 'default',
   theme,
 }: UseDocumentAppearanceOptions) {
   useEffect(() => {
@@ -35,6 +37,15 @@ export function useDocumentAppearance({
       root.setAttribute('data-theme', theme);
     }
   }, [theme]);
+
+  useEffect(() => {
+    const root = document.documentElement;
+    if (colorTheme === 'default') {
+      root.removeAttribute('data-color-theme');
+    } else {
+      root.setAttribute('data-color-theme', colorTheme);
+    }
+  }, [colorTheme]);
 
   useEffect(() => {
     const root = document.documentElement;

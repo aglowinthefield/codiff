@@ -169,6 +169,7 @@ vi.mock('@pierre/diffs/react', async () => {
     }),
     EditProvider: ({ children }: { children: React.ReactNode }) =>
       React.createElement(React.Fragment, null, children),
+    useWorkerPool: () => undefined,
     WorkerPoolContextProvider: ({ children }: { children: React.ReactNode }) =>
       React.createElement(React.Fragment, null, children),
   };

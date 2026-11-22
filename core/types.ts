@@ -829,12 +829,14 @@ export type DiffImageContentResult =
     };
 
 export type CodiffTheme = 'system' | 'light' | 'dark';
+export type CodiffColorTheme = 'default' | 'compline' | 'gruvbox';
 
 export type CodiffPreferences = {
   agentBackend: 'codex' | 'claude' | 'opencode' | 'pi';
   claudeModel: string;
   codeFontFamily: string;
   codeFontSize: number;
+  colorTheme: CodiffColorTheme;
   copyCommentsOnClose: boolean;
   diffStyle: CodiffDiffStyle;
   editorCommand: string;

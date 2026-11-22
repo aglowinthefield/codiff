@@ -1171,6 +1171,7 @@ export default function App({
     clearEmptyCodeFontFamily: true,
     codeFontFamily: preferences.codeFontFamily,
     codeFontSize: preferences.codeFontSize,
+    colorTheme: preferences.colorTheme,
     theme: preferences.theme,
   });
 
@@ -1905,6 +1906,7 @@ export default function App({
     codeEditingStore,
     codeQualityFindings: state.codeQualityFindings,
     collapsed,
+    colorTheme: preferences.colorTheme,
     comments: visibleReviewComments,
     commitMetadata,
     diffLineHeight,

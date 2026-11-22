@@ -1,0 +1,159 @@
+{
+  "name": "Gruvbox Light",
+  "appearance": "light",
+  "style": {
+    "background": "#fbf1c7",
+    "text": "#3c3836",
+    "editor.background": "#fbf1c7",
+    "editor.foreground": "#3c3836",
+    "editor.active_line.background": "#a5a5a520",
+    "search.match_background": "#b5761450",
+    "players": [
+      {
+        "cursor": "#af3a03",
+        "selection": "#d5c4a1"
+      }
+    ],
+    "editor.line_number": "#a89984",
+    "editor.active_line_number": "#3c3836",
+    "syntax": {
+      "attribute": {
+        "color": "#076678"
+      },
+      "boolean": {
+        "color": "#8f3f71"
+      },
+      "comment": {
+        "color": "#928374",
+        "font_style": "italic"
+      },
+      "comment.doc": {
+        "color": "#7c6f64"
+      },
+      "constant.builtin": {
+        "color": "#8f3f71"
+      },
+      "constructor": {
+        "color": "#427b58"
+      },
+      "diff.minus": {
+        "color": "#3c3836"
+      },
+      "diff.plus": {
+        "color": "#3c3836"
+      },
+      "emphasis": {
+        "color": "#3c3836",
+        "font_style": "italic"
+      },
+      "emphasis.strong": {
+        "color": "#3c3836",
+        "font_weight": 700
+      },
+      "enum": {
+        "color": "#b57614"
+      },
+      "function": {
+        "color": "#427b58"
+      },
+      "keyword": {
+        "color": "#9d0006"
+      },
+      "keyword.declaration": {
+        "color": "#af3a03"
+      },
+      "keyword.jsdoc": {
+        "color": "#af3a03"
+      },
+      "label": {
+        "color": "#427b58"
+      },
+      "link_text": {
+        "color": "#79740e"
+      },
+      "link_uri": {
+        "color": "#3c3836"
+      },
+      "namespace": {
+        "color": "#b57614"
+      },
+      "number": {
+        "color": "#8f3f71"
+      },
+      "operator": {
+        "color": "#3c3836"
+      },
+      "property.json_key": {
+        "color": "#076678"
+      },
+      "punctuation.bracket.html": {
+        "color": "#7c6f64"
+      },
+      "punctuation.bracket.jsx": {
+        "color": "#7c6f64"
+      },
+      "punctuation.delimiter.jsx": {
+        "color": "#7c6f64"
+      },
+      "punctuation.special": {
+        "color": "#af3a03"
+      },
+      "selector": {
+        "color": "#9d0006"
+      },
+      "selector.class": {
+        "color": "#076678"
+      },
+      "selector.id": {
+        "color": "#076678"
+      },
+      "selector.pseudo": {
+        "color": "#076678"
+      },
+      "string": {
+        "color": "#79740e"
+      },
+      "string.escape": {
+        "color": "#af3a03",
+        "font_weight": 700
+      },
+      "string.regex": {
+        "color": "#af3a03"
+      },
+      "string.special": {
+        "color": "#af3a03"
+      },
+      "string.special.symbol": {
+        "color": "#af3a03",
+        "font_weight": 700
+      },
+      "tag": {
+        "color": "#9d0006"
+      },
+      "tag.component.jsx": {
+        "color": "#b57614"
+      },
+      "text.jsx": {
+        "color": "#3c3836"
+      },
+      "text.literal": {
+        "color": "#3c3836"
+      },
+      "title": {
+        "color": "#427b58"
+      },
+      "type": {
+        "color": "#b57614"
+      },
+      "type.builtin": {
+        "color": "#af3a03"
+      },
+      "type.class": {
+        "color": "#b57614"
+      },
+      "variable.special": {
+        "color": "#8f3f71"
+      }
+    }
+  }
+}

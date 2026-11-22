@@ -1,5 +1,4 @@
-import dunkelTheme from '../themes/dunkel.json' with { type: 'json' };
-import lichtTheme from '../themes/licht.json' with { type: 'json' };
+import { syntaxThemeDefinitions } from './color-themes.ts';
 import { hasActiveTextSelection } from './review-comments.ts';
 
 export type IdentifierAtOffset = {
@@ -87,8 +86,8 @@ const identifierNavigationAttribute = 'data-codiff-identifier';
 const definitionModifierAttribute = 'data-codiff-definition-mode';
 const nonCodeScopePattern = /^(comment|string)(\.|$)/;
 const nonCodeTokenColors = new Set(
-  [dunkelTheme, lichtTheme].flatMap((theme) =>
-    Object.entries(theme.style.syntax).flatMap(([scope, token]) =>
+  syntaxThemeDefinitions.flatMap((theme) =>
+    Object.entries(theme.style.syntax).flatMap(([scope, token]: [string, { color: string }]) =>
       nonCodeScopePattern.test(scope) ? [token.color.toLowerCase()] : [],
     ),
   ),

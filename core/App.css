@@ -137,6 +137,192 @@
     color-scheme: dark;
   }
 
+  /* Color themes. Each one overrides the default tokens above and carries a
+     light and a dark variant, so `data-theme` keeps choosing the mode. */
+  :root[data-color-theme='compline'] {
+    --app-bg: #e8e7e2;
+    --code-bg: #f7f6f3;
+    --codiff-git-added: #547854;
+    --codiff-git-deleted: #a85252;
+    --codiff-git-modified: #4a688c;
+    --codiff-git-renamed: #9c8234;
+    --codiff-git-untracked: #4a685a;
+    --codiff-tree-color-scheme: light;
+    --danger: #a85252;
+    --diff-addition: #547854;
+    --diff-deletion: #b04a4a;
+    --file-bg: rgb(247 246 243 / 0.78);
+    --file-border: rgb(38 42 48 / 0.1);
+    --inline-code-bg: #e2e1dc;
+    --hover-wash: rgb(74 104 90 / 0.1);
+    --copy-icon: rgb(38 42 48 / 0.62);
+    --muted: rgb(38 42 48 / 0.5);
+    --sidebar-bg: rgb(240 239 235 / 0.62);
+    --sidebar-border: rgb(38 42 48 / 0.1);
+    --sidebar-ref: #9c8234;
+    --sidebar-text: rgb(38 42 48 / 0.78);
+    --sidebar-vibrancy-tint: rgb(240 239 235 / 0.36);
+    --text: #262a30;
+    --tree-selection-bg: #4a685a2e;
+    --tree-selection-focus: #4a685a;
+    --viewed: #547854;
+    color-scheme: light;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root[data-color-theme='compline']:not([data-theme='light']) {
+      --app-bg: #171a1e;
+      --code-bg: #1e2125;
+      --codiff-git-added: #8fb48f;
+      --codiff-git-deleted: #c98e8e;
+      --codiff-git-modified: #93a8bf;
+      --codiff-git-renamed: #d4ccb4;
+      --codiff-git-untracked: #b4c4bc;
+      --codiff-tree-color-scheme: dark;
+      --danger: #c98e8e;
+      --diff-addition: #a3c4a3;
+      --diff-deletion: #d4a0a0;
+      --file-bg: rgb(34 38 43 / 0.72);
+      --file-border: rgb(240 239 235 / 0.08);
+      --inline-code-bg: #282c34;
+      --hover-wash: rgb(180 196 188 / 0.1);
+      --copy-icon: rgb(240 239 235 / 0.62);
+      --muted: rgb(240 239 235 / 0.45);
+      --sidebar-bg: rgb(26 29 33 / 0.62);
+      --sidebar-border: rgb(240 239 235 / 0.08);
+      --sidebar-ref: #d4ccb4;
+      --sidebar-text: rgb(240 239 235 / 0.76);
+      --sidebar-vibrancy-tint: rgb(26 29 33 / 0.3);
+      --text: #e4e2dc;
+      --tree-selection-bg: #3d424acc;
+      --tree-selection-focus: #b4c4bc;
+      --viewed: #b8c4b8;
+      color-scheme: dark;
+    }
+  }
+
+  :root[data-color-theme='compline'][data-theme='dark'] {
+    --app-bg: #171a1e;
+    --code-bg: #1e2125;
+    --codiff-git-added: #8fb48f;
+    --codiff-git-deleted: #c98e8e;
+    --codiff-git-modified: #93a8bf;
+    --codiff-git-renamed: #d4ccb4;
+    --codiff-git-untracked: #b4c4bc;
+    --codiff-tree-color-scheme: dark;
+    --danger: #c98e8e;
+    --diff-addition: #a3c4a3;
+    --diff-deletion: #d4a0a0;
+    --file-bg: rgb(34 38 43 / 0.72);
+    --file-border: rgb(240 239 235 / 0.08);
+    --inline-code-bg: #282c34;
+    --hover-wash: rgb(180 196 188 / 0.1);
+    --copy-icon: rgb(240 239 235 / 0.62);
+    --muted: rgb(240 239 235 / 0.45);
+    --sidebar-bg: rgb(26 29 33 / 0.62);
+    --sidebar-border: rgb(240 239 235 / 0.08);
+    --sidebar-ref: #d4ccb4;
+    --sidebar-text: rgb(240 239 235 / 0.76);
+    --sidebar-vibrancy-tint: rgb(26 29 33 / 0.3);
+    --text: #e4e2dc;
+    --tree-selection-bg: #3d424acc;
+    --tree-selection-focus: #b4c4bc;
+    --viewed: #b8c4b8;
+    color-scheme: dark;
+  }
+
+  :root[data-color-theme='gruvbox'] {
+    --app-bg: #f2e5bc;
+    --code-bg: #fbf1c7;
+    --codiff-git-added: #79740e;
+    --codiff-git-deleted: #9d0006;
+    --codiff-git-modified: #076678;
+    --codiff-git-renamed: #b57614;
+    --codiff-git-untracked: #427b58;
+    --codiff-tree-color-scheme: light;
+    --danger: #9d0006;
+    --diff-addition: #79740e;
+    --diff-deletion: #9d0006;
+    --file-bg: rgb(251 241 199 / 0.8);
+    --file-border: rgb(60 56 54 / 0.12);
+    --inline-code-bg: #ebdbb2;
+    --hover-wash: rgb(124 111 100 / 0.12);
+    --copy-icon: rgb(60 56 54 / 0.62);
+    --muted: rgb(60 56 54 / 0.52);
+    --sidebar-bg: rgb(242 229 188 / 0.62);
+    --sidebar-border: rgb(60 56 54 / 0.12);
+    --sidebar-ref: #af3a03;
+    --sidebar-text: rgb(60 56 54 / 0.8);
+    --sidebar-vibrancy-tint: rgb(251 241 199 / 0.36);
+    --text: #3c3836;
+    --tree-selection-bg: #d5c4a1aa;
+    --tree-selection-focus: #076678;
+    --viewed: #79740e;
+    color-scheme: light;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root[data-color-theme='gruvbox']:not([data-theme='light']) {
+      --app-bg: #1d2021;
+      --code-bg: #282828;
+      --codiff-git-added: #b8bb26;
+      --codiff-git-deleted: #fb4934;
+      --codiff-git-modified: #83a598;
+      --codiff-git-renamed: #fabd2f;
+      --codiff-git-untracked: #8ec07c;
+      --codiff-tree-color-scheme: dark;
+      --danger: #fb4934;
+      --diff-addition: #b8bb26;
+      --diff-deletion: #fb4934;
+      --file-bg: rgb(40 40 40 / 0.74);
+      --file-border: rgb(235 219 178 / 0.1);
+      --inline-code-bg: #3c3836;
+      --hover-wash: rgb(235 219 178 / 0.08);
+      --copy-icon: rgb(235 219 178 / 0.66);
+      --muted: rgb(235 219 178 / 0.5);
+      --sidebar-bg: rgb(29 32 33 / 0.62);
+      --sidebar-border: rgb(235 219 178 / 0.1);
+      --sidebar-ref: #fe8019;
+      --sidebar-text: rgb(235 219 178 / 0.78);
+      --sidebar-vibrancy-tint: rgb(29 32 33 / 0.3);
+      --text: #ebdbb2;
+      --tree-selection-bg: #504945cc;
+      --tree-selection-focus: #83a598;
+      --viewed: #b8bb26;
+      color-scheme: dark;
+    }
+  }
+
+  :root[data-color-theme='gruvbox'][data-theme='dark'] {
+    --app-bg: #1d2021;
+    --code-bg: #282828;
+    --codiff-git-added: #b8bb26;
+    --codiff-git-deleted: #fb4934;
+    --codiff-git-modified: #83a598;
+    --codiff-git-renamed: #fabd2f;
+    --codiff-git-untracked: #8ec07c;
+    --codiff-tree-color-scheme: dark;
+    --danger: #fb4934;
+    --diff-addition: #b8bb26;
+    --diff-deletion: #fb4934;
+    --file-bg: rgb(40 40 40 / 0.74);
+    --file-border: rgb(235 219 178 / 0.1);
+    --inline-code-bg: #3c3836;
+    --hover-wash: rgb(235 219 178 / 0.08);
+    --copy-icon: rgb(235 219 178 / 0.66);
+    --muted: rgb(235 219 178 / 0.5);
+    --sidebar-bg: rgb(29 32 33 / 0.62);
+    --sidebar-border: rgb(235 219 178 / 0.1);
+    --sidebar-ref: #fe8019;
+    --sidebar-text: rgb(235 219 178 / 0.78);
+    --sidebar-vibrancy-tint: rgb(29 32 33 / 0.3);
+    --text: #ebdbb2;
+    --tree-selection-bg: #504945cc;
+    --tree-selection-focus: #83a598;
+    --viewed: #b8bb26;
+    color-scheme: dark;
+  }
+
   *,
   *::before,
   *::after {

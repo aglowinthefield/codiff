@@ -1,11 +1,11 @@
 import { preloadHighlighter, registerCustomTheme, setCustomExtension } from '@pierre/diffs';
 import { getOrCreateWorkerPoolSingleton } from '@pierre/diffs/worker';
-import dunkelTheme from '../themes/dunkel.json' with { type: 'json' };
-import lichtTheme from '../themes/licht.json' with { type: 'json' };
 import type { DiffSection } from '../types.ts';
+import { syntaxThemeDefinitions, syntaxThemes } from './color-themes.ts';
 
-registerCustomTheme('Licht', async () => lichtTheme as never, 'zed');
-registerCustomTheme('Dunkel', async () => dunkelTheme as never, 'zed');
+for (const theme of syntaxThemeDefinitions) {
+  registerCustomTheme(theme.name, async () => theme as never, 'zed');
+}
 setCustomExtension('cts', 'typescript');
 setCustomExtension('mts', 'typescript');
 
@@ -40,10 +40,7 @@ export const diffCollapsedContextThreshold = 12;
 export const workerHighlighterOptions = {
   maxLineDiffLength: 2000,
   preferredHighlighter: 'highlights' as const,
-  theme: {
-    dark: 'Dunkel',
-    light: 'Licht',
-  },
+  theme: syntaxThemes.default,
   tokenizeMaxLineLength: 20_000,
   // Pierre's editor requires token metadata. Generate it in the workers so
   // entering edit mode can reuse the highlighted result without a local pass.
@@ -81,7 +78,7 @@ export const preloadCodeViewHighlighter = () =>
   preloadHighlighter({
     langs: ['text'],
     preferredHighlighter: workerHighlighterOptions.preferredHighlighter,
-    themes: ['Licht', 'Dunkel'],
+    themes: [syntaxThemes.default.light, syntaxThemes.default.dark],
   });
 
 export const codeViewUnsafeCSS = `
@@ -94,6 +91,9 @@ export const codeViewUnsafeCSS = `
     --diffs-line-height: var(--font-diff-line-height, 20px);
     --diffs-light-bg: var(--code-bg);
     --diffs-dark-bg: var(--code-bg);
+    --diffs-addition-color-override: var(--codiff-git-added);
+    --diffs-deletion-color-override: var(--codiff-git-deleted);
+    --diffs-modified-color-override: var(--codiff-git-modified);
     --diffs-bg-selection-override: rgb(61 135 245 / 0.34);
     --diffs-bg-selection-number-override: rgb(61 135 245 / 0.46);
   }

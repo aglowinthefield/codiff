@@ -6,6 +6,8 @@ import { expect, test, vi } from 'vite-plus/test';
 import packageJson from '../../package.json' with { type: 'json' };
 import schema from '../config/codiff-config.schema.json' with { type: 'json' };
 import { createDefaultConfig } from '../config/defaults.ts';
+import type { CodiffColorTheme } from '../config/types.ts';
+import { getSyntaxTheme, syntaxThemeDefinitions } from '../lib/color-themes.ts';
 import { createTemporaryDirectorySync, createTemporaryEnvironment } from './helpers/resources.ts';
 
 const require = createRequire(import.meta.url);
@@ -115,6 +117,22 @@ test('electron config normalizes sidebar position', () => {
   expect(
     readElectronConfig({ settings: { sidebarPosition: 'bottom' } }).settings.sidebarPosition,
   ).toBe('left');
+});
+
+test('electron config normalizes color theme and every color theme has syntax themes', () => {
+  expect(readElectronConfig({}).settings.colorTheme).toBe('default');
+  expect(readElectronConfig({ settings: { colorTheme: 'gruvbox' } }).settings.colorTheme).toBe(
+    'gruvbox',
+  );
+  expect(readElectronConfig({ settings: { colorTheme: 'solarized' } }).settings.colorTheme).toBe(
+    'default',
+  );
+
+  const registered = new Set(syntaxThemeDefinitions.map((theme) => theme.name));
+  for (const colorTheme of schema.properties.settings.properties.colorTheme.enum) {
+    const { dark, light } = getSyntaxTheme(colorTheme as CodiffColorTheme);
+    expect(registered.has(dark) && registered.has(light), colorTheme).toBe(true);
+  }
 });
 
 test('old configurations retain automatic reasoning and custom values survive save and reload', async () => {

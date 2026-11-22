@@ -157,6 +157,7 @@ counts; when it is `false`, Codiff hides those changes from the working-tree rev
     "claudeModel": "sonnet",
     "codeFontFamily": "",
     "codeFontSize": 13,
+    "colorTheme": "default",
     "copyCommentsOnClose": false,
     "diffStyle": "split",
     "editorCommand": "",
@@ -189,6 +190,9 @@ counts; when it is `false`, Codiff hides those changes from the working-tree rev
 Set `settings.editorCommand` to customize file opening. Use `{file}` for the selected file,
 `{line}` for its line number when available, and `{repo}` for the repository root, for example
 `"subl \"{repo}\" \"{file}\""`.
+Choose `View > Color Theme` or set `settings.colorTheme` to `default`, `compline`, or `gruvbox` to
+change the interface and syntax colors. Each color theme has a light and a dark variant, and
+`settings.theme` still decides which one is shown.
 Set `settings.sidebarPosition` to `left` or `right` to choose which side of the desktop window shows
 the file sidebar.
 

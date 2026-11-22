@@ -15,6 +15,7 @@ const { getConfigDir } = require('./config-dir.cjs');
  * @typedef {import('../core/config/types.ts').CodiffConfig} CodiffConfig
  * @typedef {import('../core/config/types.ts').CodiffDiffStyle} CodiffDiffStyle
  * @typedef {import('../core/config/types.ts').CodiffTheme} CodiffTheme
+ * @typedef {import('../core/config/types.ts').CodiffColorTheme} CodiffColorTheme
  * @typedef {import('../core/types.ts').CodiffPreferences} CodiffPreferences
  */
 
@@ -146,6 +147,10 @@ const parseJsonc = (text) => JSON.parse(stripTrailingCommas(stripJsoncComments(t
 /** @param {unknown} theme @returns {CodiffTheme} */
 const normalizeTheme = (theme) =>
   theme === 'system' || theme === 'light' || theme === 'dark' ? theme : 'system';
+
+/** @param {unknown} colorTheme @returns {CodiffColorTheme} */
+const normalizeColorTheme = (colorTheme) =>
+  colorTheme === 'compline' || colorTheme === 'gruvbox' ? colorTheme : 'default';
 
 /** @param {unknown} diffStyle @returns {CodiffDiffStyle} */
 const normalizeDiffStyle = (diffStyle) =>
@@ -289,6 +294,7 @@ const mergeConfig = (raw) => {
           : defaults.settings.claudeModel,
       codeFontFamily: normalizeCodeFontFamily(rawSettings.codeFontFamily),
       codeFontSize: normalizeCodeFontSize(rawSettings.codeFontSize),
+      colorTheme: normalizeColorTheme(rawSettings.colorTheme),
       copyCommentsOnClose:
         typeof rawSettings.copyCommentsOnClose === 'boolean'
           ? rawSettings.copyCommentsOnClose

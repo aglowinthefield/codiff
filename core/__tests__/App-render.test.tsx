@@ -206,6 +206,7 @@ const createCodiffMock = (overrides: Partial<Window['codiff']> = {}): Window['co
     claudeModel: defaultSettings.claudeModel,
     codeFontFamily: defaultSettings.codeFontFamily,
     codeFontSize: defaultSettings.codeFontSize,
+    colorTheme: defaultSettings.colorTheme,
     copyCommentsOnClose: true,
     diffStyle: 'split' as const,
     editorCommand: '',
